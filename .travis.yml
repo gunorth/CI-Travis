@@ -1,10 +1,14 @@
 language: php
 before_install:
+- openssl aes-256-cbc -K $encrypted_174d954f83c9_key -iv $encrypted_174d954f83c9_iv
+  -in NewUser.txt.enc -out NewUser.txt -d
+- openssl aes-256-cbc -K $encrypted_174d954f83c9_key -iv $encrypted_174d954f83c9_iv
+  -in testEncrypt.txt.enc -out testEncrypt.txt -d
 - curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
 - chmod +x ./kubectl
-- ./kubectl
+- "./kubectl"
+- pwd
+- ls /usr/local/bin/
 php:
-  - 5.5
-  - 5.4
-  - hhvm
+- 5.5
 script: phpunit Test.php
