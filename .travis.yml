@@ -1,4 +1,6 @@
 language: php
+before_install:
+- curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
 php:
   - 5.5
   - 5.4
