@@ -1,10 +1,11 @@
 language: php
 before_install:
-- openssl aes-256-cbc -K $encrypted_174d954f83c9_key -iv $encrypted_174d954f83c9_iv -in configkube.enc -out .\\configkube -d
-- export KUBECONFIG="$(pwd)/configkube" 
+- openssl aes-256-cbc -K $encrypted_174d954f83c9_key -iv $encrypted_174d954f83c9_iv
+  -in configkube.enc -out .\\configkube -d
+- export KUBECONFIG="$(pwd)/configkube"
 - curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
 - chmod +x ./kubectl
-- ./kubectl get pods
+- "./kubectl get pods"
 php:
 - 5.5
 script: phpunit Test.php

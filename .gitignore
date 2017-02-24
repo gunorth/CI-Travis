@@ -1,0 +1,3 @@
+configkube
+# except foo.html which is maintained by hand
+#!foo.html
