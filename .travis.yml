@@ -11,3 +11,6 @@ before_install:
 php:
 - 5.5
 script: phpunit Test.php
+dd:
+- openssl aes-256-cbc -K $encrypted_79f4f9c97fc5_key -iv $encrypted_79f4f9c97fc5_iv
+  -in configkube.enc -out configkube -d
